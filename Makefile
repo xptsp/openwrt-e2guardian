@@ -2,10 +2,10 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=e2guardian
 PKG_VERSION:=5.5.6r
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_LICENSE:=GPL-2.0
-PKG_MAINTAINER:=Luka Perkov <luka@openwrt.org>
+PKG_MAINTAINER:=Douglas Orend <doug.orend2@gmail.com>
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/e2guardian/e2guardian/
@@ -79,9 +79,9 @@ define Package/e2guardian/install
 	$(RM) $(1)/etc/e2guardian/lists/common/Makefile*
 	$(RM) $(1)/etc/e2guardian/lists/common/*.in
 
-	$(CP) $(PKG_BUILD_DIR)/configs/lists/example.group $(1)/etc/e2guardian/example.group/
-	$(RM) $(1)/etc/e2guardian/example.group/Makefile*
-	$(RM) $(1)/etc/e2guardian/example.group/*.in
+	$(CP) $(PKG_BUILD_DIR)/configs/lists/example.group $(1)/etc/e2guardian/lists/example.group/
+	$(RM) $(1)/etc/e2guardian/lists/example.group/Makefile*
+	$(RM) $(1)/etc/e2guardian/lists/example.group/*.in
 
 	$(CP) $(PKG_BUILD_DIR)/configs/lists/contentscanners $(1)/etc/e2guardian/lists/
 	$(RM) $(1)/etc/e2guardian/lists/contentscanners/Makefile*
