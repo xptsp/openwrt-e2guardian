@@ -39,7 +39,9 @@ CONFIGURE_ARGS += \
 	--with-proxyuser=nobody \
 	--with-proxygroup=nogroup \
 	--with-piddir=/tmp/e2guardian/ \
+	--enable-sslmitm=yes \
 	--enable-icap=yes \
+	--enable-orig-ip \
 	--enable-pcre=yes
 
 define Package/e2guardian/description
@@ -97,7 +99,7 @@ define Package/e2guardian/install
 	$(CP) $(PKG_BUILD_DIR)/configs/contentscanners/icapscan.conf $(1)/etc/e2guardian/contentscanners/
 
 	$(INSTALL_CONF) $(PKG_BUILD_DIR)/configs/e2guardian.conf $(1)/etc/e2guardian/e2guardian.conf
-	$(INSTALL_CONF) $(PKG_BUILD_DIR)/configs/e2guardian1.conf $(1)/etc/e2guardian/e2guardian1.conf
+	$(INSTALL_CONF) $(PKG_BUILD_DIR)/configs/e2guardianf1.conf $(1)/etc/e2guardian/e2guardianf1.conf
 	$(CP) $(PKG_BUILD_DIR)/configs/*.story $(1)/etc/e2guardian/
 
 	$(INSTALL_DIR) $(1)/etc/config
